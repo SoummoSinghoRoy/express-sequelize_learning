@@ -100,8 +100,10 @@ Student.sync({force: true, alter: true})
         .then(() => {
           return Student.findAll({
             attributes: [
-              [sequelize.fn('COUNT', sequelize.col('school_year')), 'sum_students']
+              'school_year',
+              [sequelize.fn('COUNT', sequelize.col('school_year')), 'num_students']
             ],
+            group: 'school_year'
           })
         })
         .then((students) => {

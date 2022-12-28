@@ -224,7 +224,7 @@ User.sync({force: true, alter: true})
 
 // -- Model data Query method
 
-// Model.findAll() - eta table er sob data ekbare pete help kore.
+// Model.findAll() - eta table er sob data ekbare pete help kore. eta niye extra ekta information finder method niye kaj er somoy janbo
 
 // Model.findAll({attributes: ['fieldname/columnname','fieldname/columnname']}) -- specific kono column er data query te help kore
 
@@ -291,6 +291,21 @@ User.sync({force: true, alter: true})
 // Utility methods -- kichu mathmetical operation dara query korte help kore jemon: max, min, avg, increment etc. operator use kore query korar kaj bujhley eta onk ta hoye jai.
 
 // Model.max('field/ column name', { where: { field/ column name: { [Op.lt]: 20 } } });
+
+// Model Querying - Finders -- model / data table theke query korar aro kichu method ache.
+
+// Model.findAll() -- ei method er usage aggey dekhechi. sudhu extra jinis holo amra findall() use kore je table ba model theke data paoyar sathe sathe model instacne somporkito aro onk kichu pacchi ejonyo .toJSON() method use kore raw/ main data gulo print korchi extra information gulo chara. kintu ei method extra ekta option nei { raw: true } er fole toJSON() call korle jrkm vabe data petam thik oirkmy pabo. { raw: true } eta findall(), findone(), findAndCountAll() query method er sathe use korte parbo
+
+// Model.findByPk() -- findAll() dara id diye query kora jay kintu sql id hisebe nijeder deoya primary key ke accept kore like - 1, 2... emon obstai chaile amra findAll() use kore id dara query korte pari abr chaile findByPk() darao korte pari. findByPk() sob somoy single data / entry provide kore query result hisebe.
+
+// Model.findOne() -- ei method sob somoy query result hisebe data table / model er query time e first je data match korbe otai dibe. findOne() method findall() method er where option niye kaj kore jehetu query korte hobe.
+
+// Model.findOrCreate() -- ei method query'r sathe sathe data table/model e je data khujte chacchi sei data na thake tahole create kore tarpor query result dibe. query'r jonyo where clause use korte hoy r jehetu create o hobe tai default naame e ekta option use korte hoy.
+
+// Model.findAndCountAll() -- ei method ta muloto findAll() & count() method er combination. eti beshi help korbe pagination er kaj e. tobe eta niye kaj korar somoy findAll() method er group option use e ektu careful hote hobe. ebong obosyoi where clause er bybohar thakbe. ei method use korar somoy obosyoi count & rows 2 ta property ke destruct korte hobe r query result er sathey count, rows 2 ta properties thakbe. jehetu pagination er somoy total koto data ache & sathe data gulo pass korte hoy.
+
+// Getters, Setters & Virtuals -- javascript get & set er concept r sequelize er get & set concept similar. amra jani js e object er modhye kono functional method banale function keyword dara ba arrow function dara seti object er method hisebe bibechito hoy kintu get & set dara kono functional method create korle seti object er property hisebe bibechito hoy fole get/set function er jodi parameter pass kora hoy tokhon object property key'r value jevabe assign kora hoy argument thik oivabe define korte hoy. (Getters, Setters & Virtuals er opor practice ache index.js e practice seshe getter_setter_virtuals.js file e pratice er record rakha hobe.)
+
 
 
 // index.js e alada kaj korechi. ei file ta just learning purpose e rekehchi.
